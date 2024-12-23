@@ -88,6 +88,11 @@
       }
 
       window.onload = helpButtonLoaded;
+      window.onmessage = function (e) {
+        if (e.data?.isChatFrame) {
+          console.log('------->accepted');
+          embedded_svc.inviteAPI.inviteButton.acceptInvite();
+        }}
 
       var initESW = function (gslbBaseURL) {
         embedded_svc.settings.displayHelpButton = true;
