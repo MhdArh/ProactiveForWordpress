@@ -209,6 +209,7 @@
             console.log(document.getElementById('rejectInvite'));
             document.getElementById('acceptInvite').onclick = (function () {
                 document.getElementById('chatFrame').contentWindow.postMessage('acceptInvite');
+		console.log('------->sent');
 
             });
 
@@ -234,6 +235,16 @@
                 inviteDiv.classList.add("isOpen");
             }
         }, 10000);
+	window.onmessage = function (e) {
+        if (e.data?.isChatFrame) {
+            const chatFrame = document.getElementById("chatFrame");
+            if (e.data?.isOpen) {
+                chatFrame?.classList.add("is-open");
+            } else if (chatFrame?.classList.contains("is-open")) {
+                chatFrame.classList.remove("is-open");
+            }
+        }
+    };
     </script>
 </body>
 <body>
