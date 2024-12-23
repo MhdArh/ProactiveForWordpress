@@ -211,7 +211,7 @@
                 document.getElementById('chatFrame').contentWindow.postMessage({
           									isChatFrame: true,
 										acceptInvite: true
-        		}, '*'););
+        		}, '*');
 		console.log('------->sent');
 
             });
