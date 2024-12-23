@@ -12,12 +12,12 @@
         border: 0;
         z-index: 9999;
         transition: height 0.3s ease; /* Smooth transition when height changes */
-    }
+    	}
 
     .chat-frame.is-open {
         height: 498px;
         //width: 360px;
-    }
+    	}
 
     /* Media query for small devices */
     @media (max-width: 768px) {
@@ -30,11 +30,6 @@
             height: 675px; /* Smaller height for open state on mobile */
         }
     }
-		html {
-			background-image: url('coffee-salesforce.jpeg');
-			background-repeat: norepeat;
-			background-size: cover;
-		}
 	</style>
 	<!-- Start of Invitations -->
 	<div class="embeddedServiceInvitation" id="snapins_invite" inert="true" aria-live="assertive" role="dialog"
@@ -235,7 +230,6 @@
 		})();
 	</script>
 	<!-- End of Invitations -->
-	<title>Salesforce Chat - Iframes POC</title>
 	<script type="application/javascript">
 		setTimeout(function () {
 		  var inviteDiv = document.getElementById("snapins_invite");
