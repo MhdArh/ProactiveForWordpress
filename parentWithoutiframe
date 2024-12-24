@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -200,40 +201,34 @@
             <button type="button" class="embeddedServiceActionButton" id="acceptInvite">Start Chat</button>
         </div>
     </div>
+
     <script type="application/javascript">
-        // rejectInviteFunc = (function () {
-        //     console.log('rejecting');
-        // });
+
         (function () {
             console.log('Chat Invite');
-            console.log(document.getElementById('rejectInvite'));
             document.getElementById('acceptInvite').onclick = (function () {
                 document.getElementById('chatFrame').contentWindow.postMessage({
-          									isChatFrame: true,
-										acceptInvite: true
+          			isChatFrame: true,
+					acceptInvite: true
         		}, '*');
-		console.log('------->sent');
-		inviteDiv = document.getElementById("snapins_invite");
-		if (inviteDiv) {
-		console.log('------>remove');
-                inviteDiv.style.display = "none";
-                inviteDiv.classList.remove("isOpen");
-            }
-
+                console.log('------->sent');
+                inviteDiv = document.getElementById("snapins_invite");
+                if (inviteDiv) {
+                    console.log('------>remove');
+                    inviteDiv.style.display = "none";
+                    inviteDiv.classList.remove("isOpen");
+                }
             });
 
-             document.getElementById('rejectInvite').onclick = (function () {
-		document.getElementById('chatFrame').contentWindow.postMessage({
-          									isChatFrame: true,
-										rejectInvite: true
-        		}, '*');
-		console.log('------->sent');
-		inviteDiv = document.getElementById("snapins_invite");
-		if (inviteDiv) {
-		console.log('------>remove');
-                inviteDiv.style.display = "none";
-                inviteDiv.classList.remove("isOpen");
-        }
+            document.getElementById('rejectInvite').onclick = (function () {
+
+                console.log('------->rejected called');
+                inviteDiv = document.getElementById("snapins_invite");
+                if (inviteDiv) {
+                    console.log('------>remove in reject');
+                    inviteDiv.style.display = "none";
+                    inviteDiv.classList.remove("isOpen");
+                }
             });
         
 
@@ -255,7 +250,7 @@
                 inviteDiv.classList.add("isOpen");
             }
         }, 10000);
-	window.onmessage = function (e) {
+	    window.onmessage = function (e) {
         if (e.data?.isChatFrame) {
             const chatFrame = document.getElementById("chatFrame");
             if (e.data?.isOpen) {
