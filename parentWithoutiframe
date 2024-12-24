@@ -1,10 +1,4 @@
 <style>
-    .scrollable-container {
-        height: 400px; /* Adjust the height to your preference */
-        overflow-y: auto; /* Enable vertical scrolling */
-        border: 1px solid #ccc; /* Optional: Add a border for clarity */
-        padding: 10px; /* Optional: Add some inner spacing */
-    }
 
     .chat-frame {
         position: fixed;
@@ -108,7 +102,7 @@
         color: #FFFFFF;
     }
 
-    /* .embeddedServiceInvitationHeader .embeddedServiceCloseIcon:focus {
+    .embeddedServiceInvitationHeader .embeddedServiceCloseIcon:focus {
         outline: none;
     }
 
@@ -121,7 +115,7 @@
         height: 85%;
         background-color: rgba(255, 255, 255, 0.2);
         border-radius: 4px;
-    } */
+    }
 
     .embeddedServiceInvitationHeader .embeddedServiceCloseIcon:active,
     .embeddedServiceCloseIcon:hover {
@@ -137,6 +131,7 @@
         margin: 0 8px;
         font-size: 14px;
         line-height: 20px;
+        overflow-y: auto;
     }
 
     .embeddedServiceInvitationBody p {
