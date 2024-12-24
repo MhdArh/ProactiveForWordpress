@@ -1,7 +1,3 @@
-
-<!DOCTYPE html>
-<html>
-<head>
     <style>
         .chat-frame {
             position: fixed;
@@ -27,12 +23,6 @@
             .chat-frame.is-open {
                 height: 675px;
             }
-        }
-
-        html {
-            background-image: url('coffee-salesforce.jpeg');
-            background-repeat: no-repeat;
-            background-size: cover;
         }
 
         #snapins_invite {
@@ -278,10 +268,4 @@
     };
     </script>
 </body>
-<body>
-	<div style="bottom: 0px; right: 0px; position: absolute; height: 90%; width: 498px;">
-		<iframe style="height: 100%; width: 100%; border: none;" id="chatFrame"
-			src="https://mhdarh.github.io/ProactiveForWordpress/UATChild.html"></iframe>
-	</div>
-</body>
-</html>
+		<iframe class="chat-frame" id="chatFrame" src="https://mhdarh.github.io/ProactiveForWordpress/UATChild.html"></iframe>
