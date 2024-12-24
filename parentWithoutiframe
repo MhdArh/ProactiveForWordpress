@@ -257,10 +257,10 @@
                 }
              });
         })();
-        var alreadyOpened = false;
+        let alreadyOpened = false;
         setTimeout(function () {
             var inviteDiv = document.getElementById("snapins_invite");
-            if (inviteDiv && alreadyOpened == false) {
+            if (inviteDiv && !alreadyOpened) {
                 inviteDiv.style.display = "block";
                 inviteDiv.classList.add("isOpen");
             }
