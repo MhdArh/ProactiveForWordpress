@@ -174,9 +174,7 @@
 
     
     <title>Salesforce Chat - Iframes POC</title>
-</head>
 
-<body>
     <div class="embeddedServiceInvitation" id="snapins_invite" aria-live="assertive" role="dialog" aria-atomic="true">
         <div class="embeddedServiceInvitationHeader" aria-labelledby="snapins_titletext" aria-describedby="snapins_bodytext">
             <img id="embeddedServiceAvatar"></img>
@@ -267,5 +265,4 @@
         }
     };
     </script>
-</body>
 		<iframe class="chat-frame" id="chatFrame" src="https://mhdarh.github.io/ProactiveForWordpress/UATChild.html"></iframe>
