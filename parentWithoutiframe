@@ -231,6 +231,7 @@
             });
         
             document.addEventListener('keyup', function (event) {
+		console.log(
                 if (event.keyCode == 27) {
                     console.log('------->rejected called');
                     inviteDiv = document.getElementById("snapins_invite");
