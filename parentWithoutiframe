@@ -225,7 +225,7 @@
              document.getElementById('rejectInvite').onclick = (function () {
 		document.getElementById('chatFrame').contentWindow.postMessage({
           									isChatFrame: true,
-										acceptInvite: true
+										rejectInvite: true
         		}, '*');
 		console.log('------->sent');
 		inviteDiv = document.getElementById("snapins_invite");
