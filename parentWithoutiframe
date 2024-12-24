@@ -258,7 +258,7 @@
             const chatFrame = document.getElementById("chatFrame");
             if (e.data?.isOpen) {
                 alreadyOpened = true;
-		inviteDiv = document.getElementById("snapins_invite");
+		var inviteDiv = document.getElementById("snapins_invite");
                 if (inviteDiv) {
                     console.log('------>remove in reject');
                     inviteDiv.style.display = "none";
