@@ -240,7 +240,7 @@
             inviteDiv.style.display = "block";
             inviteDiv.classList.add("isOpen");
         }
-    }, 100000);
+    }, 10000);
     window.onmessage = function (e) {
     if (e.data?.isChatFrame) {
         const chatFrame = document.getElementById("chatFrame");
