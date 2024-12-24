@@ -213,6 +213,7 @@
 										acceptInvite: true
         		}, '*');
 		console.log('------->sent');
+		inviteDiv = document.getElementById("snapins_invite");
 		if (inviteDiv) {
 		console.log('------>remove');
                 inviteDiv.style.display = "none";
