@@ -34,7 +34,7 @@
             max-width: 290px;
             max-height: 210px;
             box-shadow: 0 7px 12px rgba(0, 0, 0, 0.28);
-            top: calc(45vh);
+            top: calc(30vh);
             right: 10px;
             transform: translateX(100%);
             opacity: 0;
@@ -63,7 +63,7 @@
             line-height: 32px;
             padding: 10px;
             color: #FFFFFF;
-            background-color: #14B590;
+            background-color: #FF0000;
             display: flex;
             justify-content: space-between;
             align-items: stretch;
@@ -177,12 +177,12 @@
 
     <div class="embeddedServiceInvitation" id="snapins_invite" aria-live="assertive" role="dialog" aria-atomic="true">
         <div class="embeddedServiceInvitationHeader" aria-labelledby="snapins_titletext" aria-describedby="snapins_bodytext">
-            <img id="embeddedServiceAvatar"></img>
+            <img id="embeddedServiceAvatar" src= "https://cmfgroup.my.salesforce.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=068Vn00000ER8Xp&operationContext=DELIVERY&contentId=05TVn00000GJroz&page=0&d=/a/Vn000000TDJd/Ur7cDXN5GMboz_V9BHLP5KfDta2AAMfYyEGdcJkV3Gw&oid=00D41000000Wge4&dpt=null&viewId="></img>
             <span class="embeddedServiceTitleText" id="snapins_titletext">Need help?</span>
             <button type="button" id="closeInvite" class="embeddedServiceCloseIcon" aria-label="Exit invitation">&times;</button>
         </div>
         <div class="embeddedServiceInvitationBody">
-            <p id="snapins_bodytext">How can we help you?</p>
+            <p id="snapins_bodytext">Click Start Chat to speak to a live agent</p>
         </div>    
         <div class="embeddedServiceInvitationFooter" aria-describedby="snapins_bodytext">
             <button type="button" class="embeddedServiceActionButton" id="rejectInvite">Close</button>
