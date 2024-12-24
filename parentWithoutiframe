@@ -195,11 +195,12 @@
 
     (function () {
         document.getElementById('acceptInvite').onclick = (function () {
-            inviteDiv = document.getElementById("snapins_invite");
-            if (inviteDiv) {
-                inviteDiv.classList.remove("isOpen");
-                inviteDiv.style.display = "none";
-            }
+            document.getElementById('rejectInvite').click();
+            // inviteDiv = document.getElementById("snapins_invite");
+            // if (inviteDiv) {
+            //     inviteDiv.classList.remove("isOpen");
+            //     inviteDiv.style.display = "none";
+            // }
             document.getElementById('chatFrame').contentWindow.postMessage({
                 isChatFrame: true,
                 acceptInvite: true
