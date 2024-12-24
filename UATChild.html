@@ -92,7 +92,11 @@
         if (e.data?.isChatFrame) {
           console.log('------->accepted');
           embedded_svc.inviteAPI.inviteButton.acceptInvite();
-        }}
+        }else if(e.data?.isChatFrame){
+          console.log('-------->rejected');
+          embedded_svc.inviteAPI.inviteButton.rejectInvite();     
+        }
+      }
 
       var initESW = function (gslbBaseURL) {
         embedded_svc.settings.displayHelpButton = true;
