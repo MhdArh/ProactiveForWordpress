@@ -193,15 +193,16 @@
 
     (function () {
         document.getElementById('acceptInvite').onclick = (function () {
+            inviteDiv = document.getElementById("snapins_invite");
+            if (inviteDiv) {
+                inviteDiv.classList.remove("isOpen");
+                inviteDiv.style.display = "none";
+            }
             document.getElementById('chatFrame').contentWindow.postMessage({
                 isChatFrame: true,
                 acceptInvite: true
             }, '*');
-            inviteDiv = document.getElementById("snapins_invite");
-            if (inviteDiv) {
-                inviteDiv.style.display = "none";
-                inviteDiv.classList.remove("isOpen");
-            }
+           
         });
 
         document.getElementById('rejectInvite').onclick = (function () {
