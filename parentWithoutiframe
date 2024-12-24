@@ -1,4 +1,11 @@
 <style>
+    .scrollable-container {
+        height: 400px; /* Adjust the height to your preference */
+        overflow-y: auto; /* Enable vertical scrolling */
+        border: 1px solid #ccc; /* Optional: Add a border for clarity */
+        padding: 10px; /* Optional: Add some inner spacing */
+    }
+
     .chat-frame {
         position: fixed;
         bottom: 0;
