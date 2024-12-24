@@ -1,272 +1,258 @@
-    <style>
+<style>
+    .chat-frame {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 360px !important;
+        height: 60px;
+        border: 0;
+        z-index: 9999;
+        transition: height 0.3s ease;
+    }
+
+    .chat-frame.is-open {
+        height: 498px;
+    }
+
+    @media (max-width: 768px) {
         .chat-frame {
-            position: fixed;
-            bottom: 0;
-            right: 0;
-            width: 360px !important;
+            width: 100%;
             height: 60px;
-            border: 0;
-            z-index: 9999;
-            transition: height 0.3s ease;
         }
 
         .chat-frame.is-open {
-            height: 498px;
+            height: 675px;
         }
+    }
 
-        @media (max-width: 768px) {
-            .chat-frame {
-                width: 100%;
-                height: 60px;
-            }
+    #snapins_invite {
+        position: absolute;
+        background-color: #FFFFFF;
+        font-family: "Arial", sans-serif;
+        overflow: visible;
+        border-radius: 8px;
+        max-width: 290px;
+        max-height: 210px;
+        box-shadow: 0 7px 12px rgba(0, 0, 0, 0.28);
+        top: calc(30vh);
+        right: 10px;
+        transform: translateX(100%);
+        opacity: 0;
+        transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+        z-index: 10000;
+        display: none;
+    }
 
-            .chat-frame.is-open {
-                height: 675px;
-            }
-        }
+    #snapins_invite.isOpen {
+        display: block;
+        transform: translateX(0);
+        opacity: 1;
+        z-index: 100000;
+    }
 
-        #snapins_invite {
-            position: absolute;
-            background-color: #FFFFFF;
-            font-family: "Arial", sans-serif;
-            overflow: visible;
-            border-radius: 8px;
-            max-width: 290px;
+    @media only screen and (min-width: 48em) {
+        .embeddedServiceInvitation {
+            max-width: 332px;
             max-height: 210px;
-            box-shadow: 0 7px 12px rgba(0, 0, 0, 0.28);
-            top: calc(30vh);
-            right: 10px;
-            transform: translateX(100%);
-            opacity: 0;
-            transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-            z-index: 10000;
-            display: none;
         }
+    }
 
-        #snapins_invite.isOpen {
-            display: block;
-            transform: translateX(0);
-            opacity: 1;
-            z-index: 100000;
-        }
+    .embeddedServiceInvitation > .embeddedServiceInvitationHeader {
+        width: inherit;
+        height: 32px;
+        line-height: 32px;
+        padding: 10px;
+        color: #FFFFFF;
+        background-color: #FF0000;
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
 
-        @media only screen and (min-width: 48em) {
-            .embeddedServiceInvitation {
-                max-width: 332px;
-                max-height: 210px;
-            }
-        }
+    .embeddedServiceInvitationHeader #embeddedServiceAvatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+    }
 
-        .embeddedServiceInvitation > .embeddedServiceInvitationHeader {
-            width: inherit;
-            height: 32px;
-            line-height: 32px;
-            padding: 10px;
-            color: #FFFFFF;
-            background-color: #FF0000;
-            display: flex;
-            justify-content: space-between;
-            align-items: stretch;
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
-        }
+    .embeddedServiceInvitationHeader .embeddedServiceTitleText {
+        font-size: 18px;
+        color: #FFFFFF;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        align-self: stretch;
+        flex-grow: 1;
+        max-width: 100%;
+        margin: 0 12px;
+    }
 
-        .embeddedServiceInvitationHeader #embeddedServiceAvatar {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-        }
+    .embeddedServiceInvitationHeader .embeddedServiceCloseIcon {
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        position: relative;
+        background-color: transparent;
+        width: 32px;
+        height: 32px;
+        font-size: 23px;
+        color: #FFFFFF;
+    }
 
-        .embeddedServiceInvitationHeader .embeddedServiceTitleText {
-            font-size: 18px;
-            color: #FFFFFF;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            align-self: stretch;
-            flex-grow: 1;
-            max-width: 100%;
-            margin: 0 12px;
-        }
+    .embeddedServiceInvitationHeader .embeddedServiceCloseIcon:focus {
+        outline: none;
+    }
 
-        .embeddedServiceInvitationHeader .embeddedServiceCloseIcon {
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-            position: relative;
-            background-color: transparent;
-            width: 32px;
-            height: 32px;
-            font-size: 23px;
-            color: #FFFFFF;
-        }
+    .embeddedServiceInvitationHeader .embeddedServiceCloseIcon:focus::before {
+        content: " ";
+        position: absolute;
+        top: 11%;
+        left: 7%;
+        width: 85%;
+        height: 85%;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+    }
 
-        .embeddedServiceInvitationHeader .embeddedServiceCloseIcon:focus {
-            outline: none;
-        }
+    .embeddedServiceInvitationHeader .embeddedServiceCloseIcon:active,
+    .embeddedServiceCloseIcon:hover {
+        background-color: #FFFFFF;
+        color: rgba(0, 0, 0, 0.7);
+        opacity: 0.7;
+    }
 
-        .embeddedServiceInvitationHeader .embeddedServiceCloseIcon:focus::before {
-            content: " ";
-            position: absolute;
-            top: 11%;
-            left: 7%;
-            width: 85%;
-            height: 85%;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 4px;
-        }
+    .embeddedServiceInvitation > .embeddedServiceInvitationBody {
+        background-color: #FFFFFF;
+        max-height: 110px;
+        min-width: 260px;
+        margin: 0 8px;
+        font-size: 14px;
+        line-height: 20px;
+    }
 
-        .embeddedServiceInvitationHeader .embeddedServiceCloseIcon:active,
-        .embeddedServiceCloseIcon:hover {
-            background-color: #FFFFFF;
-            color: rgba(0, 0, 0, 0.7);
-            opacity: 0.7;
-        }
+    .embeddedServiceInvitationBody p {
+        color: #333333;
+        padding: 8px;
+        margin: 12px 0;
+    }
 
-        .embeddedServiceInvitation > .embeddedServiceInvitationBody {
-            background-color: #FFFFFF;
-            max-height: 110px;
-            min-width: 260px;
-            margin: 0 8px;
-            font-size: 14px;
-            line-height: 20px;
-        }
+    .embeddedServiceInvitation > .embeddedServiceInvitationFooter {
+        width: inherit;
+        color: #FFFFFF;
+        text-align: right;
+        background-color: #FFFFFF;
+        padding: 10px;
+        max-height: 50px;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+    }
 
-        .embeddedServiceInvitationBody p {
-            color: #333333;
-            padding: 8px;
-            margin: 12px 0;
-        }
+    .embeddedServiceInvitationFooter > .embeddedServiceActionButton {
+        font-size: 14px;
+        max-height: 40px;
+        border: none;
+        border-radius: 4px;
+        padding: 10px;
+        margin: 4px;
+        text-align: center;
+        display: inline-block;
+        cursor: pointer;
+    }
 
-        .embeddedServiceInvitation > .embeddedServiceInvitationFooter {
-            width: inherit;
-            color: #FFFFFF;
-            text-align: right;
-            background-color: #FFFFFF;
-            padding: 10px;
-            max-height: 50px;
-            border-bottom-left-radius: 8px;
-            border-bottom-right-radius: 8px;
-        }
+    .embeddedServiceInvitationFooter > #acceptInvite {
+        background-color: #005290;
+        color: #FFFFFF;
+    }
 
-        .embeddedServiceInvitationFooter > .embeddedServiceActionButton {
-            font-size: 14px;
-            max-height: 40px;
-            border: none;
-            border-radius: 4px;
-            padding: 10px;
-            margin: 4px;
-            text-align: center;
-            display: inline-block;
-            cursor: pointer;
-        }
+    .embeddedServiceInvitationFooter > #rejectInvite {
+        background-color: #FFFFFF;
+        color: #005290;
+    }
+</style>
 
-        .embeddedServiceInvitationFooter > #acceptInvite {
-            background-color: #005290;
-            color: #FFFFFF;
-        }
 
-        .embeddedServiceInvitationFooter > #rejectInvite {
-            background-color: #FFFFFF;
-            color: #005290;
-        }
-    </style>
 
-    
-    <title>Salesforce Chat - Iframes POC</title>
-
-    <div class="embeddedServiceInvitation" id="snapins_invite" aria-live="assertive" role="dialog" aria-atomic="true">
-        <div class="embeddedServiceInvitationHeader" aria-labelledby="snapins_titletext" aria-describedby="snapins_bodytext">
-            <img id="embeddedServiceAvatar" src= "https://cmfgroup.my.salesforce.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=068Vn00000ER8Xp&operationContext=DELIVERY&contentId=05TVn00000GJroz&page=0&d=/a/Vn000000TDJd/Ur7cDXN5GMboz_V9BHLP5KfDta2AAMfYyEGdcJkV3Gw&oid=00D41000000Wge4&dpt=null&viewId="></img>
-            <span class="embeddedServiceTitleText" id="snapins_titletext">Need help?</span>
-            <button type="button" id="closeInvite" class="embeddedServiceCloseIcon" aria-label="Exit invitation">&times;</button>
-        </div>
-        <div class="embeddedServiceInvitationBody">
-            <p id="snapins_bodytext">Click Start Chat to speak to a live agent</p>
-        </div>    
-        <div class="embeddedServiceInvitationFooter" aria-describedby="snapins_bodytext">
-            <button type="button" class="embeddedServiceActionButton" id="rejectInvite">Close</button>
-            <button type="button" class="embeddedServiceActionButton" id="acceptInvite">Start Chat</button>
-        </div>
+<div class="embeddedServiceInvitation" id="snapins_invite" aria-live="assertive" role="dialog" aria-atomic="true">
+    <div class="embeddedServiceInvitationHeader" aria-labelledby="snapins_titletext" aria-describedby="snapins_bodytext">
+        <img id="embeddedServiceAvatar" src= "https://cmfgroup.my.salesforce.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=068Vn00000ER8Xp&operationContext=DELIVERY&contentId=05TVn00000GJroz&page=0&d=/a/Vn000000TDJd/Ur7cDXN5GMboz_V9BHLP5KfDta2AAMfYyEGdcJkV3Gw&oid=00D41000000Wge4&dpt=null&viewId="></img>
+        <span class="embeddedServiceTitleText" id="snapins_titletext">Need help?</span>
+        <button type="button" id="closeInvite" class="embeddedServiceCloseIcon" aria-label="Exit invitation">&times;</button>
     </div>
+    <div class="embeddedServiceInvitationBody">
+        <p id="snapins_bodytext">Click Start Chat to speak to a live agent</p>
+    </div>    
+    <div class="embeddedServiceInvitationFooter" aria-describedby="snapins_bodytext">
+        <button type="button" class="embeddedServiceActionButton" id="rejectInvite">Close</button>
+        <button type="button" class="embeddedServiceActionButton" id="acceptInvite">Start Chat</button>
+    </div>
+</div>
 
-    <script type="application/javascript">
+<script type="application/javascript">
 
-        (function () {
-            console.log('Chat Invite');
-            document.getElementById('acceptInvite').onclick = (function () {
-                document.getElementById('chatFrame').contentWindow.postMessage({
-          			isChatFrame: true,
-					acceptInvite: true
-        		}, '*');
-                console.log('------->sent');
-                inviteDiv = document.getElementById("snapins_invite");
-                if (inviteDiv) {
-                    console.log('------>remove');
-                    inviteDiv.style.display = "none";
-                    inviteDiv.classList.remove("isOpen");
-                }
-            });
-
-            document.getElementById('rejectInvite').onclick = (function () {
-
-                console.log('------->rejected called');
-                inviteDiv = document.getElementById("snapins_invite");
-                if (inviteDiv) {
-                    console.log('------>remove in reject');
-                    inviteDiv.style.display = "none";
-                    inviteDiv.classList.remove("isOpen");
-                }
-            });
-
-            document.getElementById('closeInvite').onclick = (function () {
-
-                console.log('------->rejected called');
-                inviteDiv = document.getElementById("snapins_invite");
-                if (inviteDiv) {
-                    console.log('------>remove in reject');
-                    inviteDiv.style.display = "none";
-                    inviteDiv.classList.remove("isOpen");
-                }
-            });
-        
-            document.addEventListener('keyup', function (event) {
-		console.log('-----------> keyup');
-                if (event.keyCode == 27) {
-                    console.log('------->rejected called');
-                    inviteDiv = document.getElementById("snapins_invite");
-                if (inviteDiv) {
-                    console.log('------>remove in reject');
-                    inviteDiv.style.display = "none";
-                    inviteDiv.classList.remove("isOpen");
-                }
-                }
-             });
-        })();
-        let alreadyOpened = false;
-        setTimeout(function () {
-            var inviteDiv = document.getElementById("snapins_invite");
-            if (inviteDiv && !alreadyOpened) {
-                inviteDiv.style.display = "block";
-                inviteDiv.classList.add("isOpen");
+    (function () {
+        document.getElementById('acceptInvite').onclick = (function () {
+            document.getElementById('chatFrame').contentWindow.postMessage({
+                isChatFrame: true,
+                acceptInvite: true
+            }, '*');
+            inviteDiv = document.getElementById("snapins_invite");
+            if (inviteDiv) {
+                inviteDiv.style.display = "none";
+                inviteDiv.classList.remove("isOpen");
             }
-        }, 10000);
-	    window.onmessage = function (e) {
-        if (e.data?.isChatFrame) {
-            const chatFrame = document.getElementById("chatFrame");
-            if (e.data?.isOpen) {
-                alreadyOpened = true;
-		var inviteDiv = document.getElementById("snapins_invite");
-                if (inviteDiv) {
-                    console.log('------>remove in reject');
-                    inviteDiv.style.display = "none";
-                    inviteDiv.classList.remove("isOpen");
-                }
-                chatFrame?.classList.add("is-open");
-            } else if (chatFrame?.classList.contains("is-open")) {
-                chatFrame.classList.remove("is-open");
+        });
+
+        document.getElementById('rejectInvite').onclick = (function () {
+            inviteDiv = document.getElementById("snapins_invite");
+            if (inviteDiv) {
+                inviteDiv.style.display = "none";
+                inviteDiv.classList.remove("isOpen");
             }
+        });
+
+        document.getElementById('closeInvite').onclick = (function () {
+            inviteDiv = document.getElementById("snapins_invite");
+            if (inviteDiv) {
+                inviteDiv.style.display = "none";
+                inviteDiv.classList.remove("isOpen");
+            }
+        });
+    
+        document.addEventListener('keyup', function (event) {
+            if (event.keyCode == 27) {
+                inviteDiv = document.getElementById("snapins_invite");
+            if (inviteDiv) {
+                inviteDiv.style.display = "none";
+                inviteDiv.classList.remove("isOpen");
+            }
+            }
+         });
+    })();
+    let alreadyOpened = false;
+    setTimeout(function () {
+        var inviteDiv = document.getElementById("snapins_invite");
+        if (inviteDiv && !alreadyOpened) {
+            inviteDiv.style.display = "block";
+            inviteDiv.classList.add("isOpen");
         }
-    };
-    </script>
-		<iframe class="chat-frame" id="chatFrame" src="https://mhdarh.github.io/ProactiveForWordpress/UATChild.html"></iframe>
+    }, 10000);
+    window.onmessage = function (e) {
+    if (e.data?.isChatFrame) {
+        const chatFrame = document.getElementById("chatFrame");
+        if (e.data?.isOpen) {
+            alreadyOpened = true;
+    var inviteDiv = document.getElementById("snapins_invite");
+            if (inviteDiv) {
+                inviteDiv.style.display = "none";
+                inviteDiv.classList.remove("isOpen");
+            }
+            chatFrame?.classList.add("is-open");
+        } else if (chatFrame?.classList.contains("is-open")) {
+            chatFrame.classList.remove("is-open");
+        }
+    }
+};
+</script>
+    <iframe class="chat-frame" id="chatFrame" src="https://mhdarh.github.io/ProactiveForWordpress/UATChild.html"></iframe>
