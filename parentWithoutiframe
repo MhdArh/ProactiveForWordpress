@@ -162,13 +162,13 @@
         }
 
         .embeddedServiceInvitationFooter > #acceptInvite {
-            background-color: #14B590;
+            background-color: #005290;
             color: #FFFFFF;
         }
 
         .embeddedServiceInvitationFooter > #rejectInvite {
             background-color: #FFFFFF;
-            color: #14B590;
+            color: #005290;
         }
     </style>
 
