@@ -89,10 +89,10 @@
 
       window.onload = helpButtonLoaded;
       window.onmessage = function (e) {
-        if (e.data?.isChatFrame) {
+        if (e.data?.isChatFrame && e.data?.acceptInvite) {
           console.log('------->accepted');
           embedded_svc.inviteAPI.inviteButton.acceptInvite();
-        }else if(e.data?.isChatFrame){
+        }else if(e.data?.isChatFrame && e.data?.acceptInvite){
           console.log('-------->rejected');
           embedded_svc.inviteAPI.inviteButton.rejectInvite();     
         }
