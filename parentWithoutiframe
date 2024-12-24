@@ -213,6 +213,11 @@
 										acceptInvite: true
         		}, '*');
 		console.log('------->sent');
+		if (inviteDiv) {
+		console.log('------>remove');
+                inviteDiv.style.display = "none";
+                inviteDiv.classList.remove("isOpen");
+            }
 
             });
 
