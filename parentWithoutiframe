@@ -232,8 +232,6 @@
         
             document.addEventListener('keyup', function (event) {
                 if (event.keyCode == 27) {
-                    document.getElementById('closeInvite').onclick = (function () {
-
                     console.log('------->rejected called');
                     inviteDiv = document.getElementById("snapins_invite");
                 if (inviteDiv) {
@@ -241,7 +239,6 @@
                     inviteDiv.style.display = "none";
                     inviteDiv.classList.remove("isOpen");
                 }
-                    });
                 }
              });
         })();
