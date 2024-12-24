@@ -242,16 +242,20 @@
                 }
             });
         
+            document.addEventListener('keyup', function (event) {
+                if (event.keyCode == 27) {
+                    document.getElementById('closeInvite').onclick = (function () {
 
-            // document.getElementById('acceptInvite').onclick = function () {
-            //     document.getElementById('chatFrame').contentWindow.postMessage('acceptInvite');
-            // };
-
-            // document.addEventListener('keyup', function (event) {
-            //     if (event.keyCode == 27) {
-            //         embedded_svc.inviteAPI.inviteButton.rejectInvite();
-            //     }
-            // });
+                    console.log('------->rejected called');
+                    inviteDiv = document.getElementById("snapins_invite");
+                if (inviteDiv) {
+                    console.log('------>remove in reject');
+                    inviteDiv.style.display = "none";
+                    inviteDiv.classList.remove("isOpen");
+                }
+                    });
+                }
+             });
         })();
 
         setTimeout(function () {
