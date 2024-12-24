@@ -258,6 +258,12 @@
             const chatFrame = document.getElementById("chatFrame");
             if (e.data?.isOpen) {
                 alreadyOpened = true;
+		inviteDiv = document.getElementById("snapins_invite");
+                if (inviteDiv) {
+                    console.log('------>remove in reject');
+                    inviteDiv.style.display = "none";
+                    inviteDiv.classList.remove("isOpen");
+                }
                 chatFrame?.classList.add("is-open");
             } else if (chatFrame?.classList.contains("is-open")) {
                 chatFrame.classList.remove("is-open");
