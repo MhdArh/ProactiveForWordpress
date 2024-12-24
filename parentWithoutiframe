@@ -222,9 +222,20 @@
 
             });
 
-            // document.getElementById('rejectInvite').onclick = function () {
-            //     embedded_svc.inviteAPI.inviteButton.rejectInvite();
-            // };
+             document.getElementById('rejectInvite').onclick = (function () {
+		document.getElementById('chatFrame').contentWindow.postMessage({
+          									isChatFrame: true,
+										acceptInvite: true
+        		}, '*');
+		console.log('------->sent');
+		inviteDiv = document.getElementById("snapins_invite");
+		if (inviteDiv) {
+		console.log('------>remove');
+                inviteDiv.style.display = "none";
+                inviteDiv.classList.remove("isOpen");
+            });
+		
+             };
 
             // document.getElementById('acceptInvite').onclick = function () {
             //     document.getElementById('chatFrame').contentWindow.postMessage('acceptInvite');
