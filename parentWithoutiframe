@@ -257,10 +257,10 @@
                 }
              });
         })();
-
+        var alreadyOpened = false;
         setTimeout(function () {
             var inviteDiv = document.getElementById("snapins_invite");
-            if (inviteDiv) {
+            if (inviteDiv && alreadyOpened) {
                 inviteDiv.style.display = "block";
                 inviteDiv.classList.add("isOpen");
             }
@@ -269,6 +269,7 @@
         if (e.data?.isChatFrame) {
             const chatFrame = document.getElementById("chatFrame");
             if (e.data?.isOpen) {
+                alreadyOpened = true;
                 chatFrame?.classList.add("is-open");
             } else if (chatFrame?.classList.contains("is-open")) {
                 chatFrame.classList.remove("is-open");
