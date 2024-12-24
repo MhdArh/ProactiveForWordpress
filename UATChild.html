@@ -92,7 +92,7 @@
         if (e.data?.isChatFrame && e.data?.acceptInvite) {
           console.log('------->accepted');
           embedded_svc.inviteAPI.inviteButton.acceptInvite();
-        }else if(e.data?.isChatFrame && e.data?.acceptInvite){
+        }else if(e.data?.isChatFrame && e.data?.rejectInvite){
           console.log('-------->rejected');
           embedded_svc.inviteAPI.inviteButton.rejectInvite();     
         }
