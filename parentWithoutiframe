@@ -223,15 +223,13 @@
             }
         });
     
-        document.addEventListener('keyup', function (event) {
-            if (event.keyCode == 27) {
-                inviteDiv = document.getElementById("snapins_invite");
-            if (inviteDiv) {
-                inviteDiv.style.display = "none";
-                inviteDiv.classList.remove("isOpen");
+        document.addEventListener('keyup', function(event) {
+            if (event.key === 'Escape' || event.keyCode === 27) {
+                console.log('Escape key was pressed!');
+                // Perform any additional action here
+                alert('Escape key detected!');
             }
-            }
-         });
+        });
     })();
     let alreadyOpened = false;
     setTimeout(function () {
